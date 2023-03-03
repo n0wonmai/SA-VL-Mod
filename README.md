@@ -45,5 +45,26 @@ if %errorlevel%==0 (
 	echo. [startup util] Registry entry successfully deleted!
 ) else (
 	echo. [startup util] Registry entry not found, skipping. 
+)
+REG Query "HKEY_USERS\%SID%_Classes\VirtualStore\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Direct3D\MostRecentApplication" >nul 2>&1
+if %errorlevel%==0 ( 
+	REG Delete "HKEY_USERS\%SID%_Classes\VirtualStore\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Direct3D\MostRecentApplication" /f
+	echo. [startup util] Registry entry successfully deleted!
+) else (
+	echo. [startup util] Registry entry not found, skipping. 
 ) 
+
+REG Query "HKEY_USERS\%SID%_Classes\VirtualStore\MACHINE\SOFTWARE\Wow6432Node\Microsoft\DirectDraw\MostRecentApplication" >nul 2>&1
+if %errorlevel%==0 ( 
+	REG Delete "HKEY_USERS\%SID%_Classes\VirtualStore\MACHINE\SOFTWARE\Wow6432Node\Microsoft\DirectDraw\MostRecentApplication" /f
+	echo. [startup util] Registry entry successfully deleted!
+) else (
+	echo. [startup util] Registry entry not found, skipping. 
+) 
+
+REM Finally starts the GTA SA exe file after everything is done.
+
+echo. [startup util] Done. Starting Grand Theft Auto: San Andreas
+start enb.exe
+pause
 ```
