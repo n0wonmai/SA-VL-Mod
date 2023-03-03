@@ -1,6 +1,7 @@
 # Run with bat script
 
 <code>
+```
 @echo off
 color 17
 set scriptversion=v1.1
@@ -69,5 +70,5 @@ REM Finally starts the GTA SA exe file after everything is done.
 echo. [startup util] Done. Starting Grand Theft Auto: San Andreas
 start enb.exe
 pause
-
+```
 </code>
